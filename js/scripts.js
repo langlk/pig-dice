@@ -50,12 +50,13 @@ Game.prototype.roll= function() {
   if (firstDie === secondDie && firstDie === 1) {
     this.activePlayer.score = 0;
     this.turnScore = 0;
-    this.endTurn();
+    return "end";
   } else if (firstDie === 1 || secondDie === 1 ) {
     this.turnScore = 0;
-    this.endTurn();
+    return "end";
   } else {
     this.turnScore += firstDie + secondDie;
+    return "";
   }
 }
 
@@ -76,6 +77,17 @@ function updateTurn(game) {
 function updateScoreboard(player1, player2) {
   $("#player1-score").text(player1.score);
   $("#player2-score").text(player2.score);
+}
+
+function lostTurnDisplay(game) {
+  $(".lost-turn").show();
+  $(".turn-info").hide();
+  $("#losing-player").text(game.activePlayer.name);
+  $("#losing-roll").text(game.lastRoll[0] +", " + game.lastRoll[1]);
+  $("button#continue").click(function() {
+    $(".lost-turn").hide();
+    $(".turn-info").show();
+  });
 }
 
 function showWinner(game) {
@@ -103,7 +115,11 @@ $(document).ready(function(){
       }
     });
     $("button#roll").click(function() {
-      newGame.roll()
+      var result = newGame.roll()
+      if (result === "end") {
+        lostTurnDisplay(newGame);
+        newGame.endTurn();
+      }
       updateTurn(newGame);
       updateScoreboard(player1, player2);
     });

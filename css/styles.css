@@ -40,6 +40,20 @@ label {
 
 }
 
+.lost-turn {
+  font-size: 17px;
+  display: none;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+}
+
+.lost-turn .btn {
+  margin: 0px;
+  float: right;
+}
+
 .turn-info {
   display: none;
   width: 30%;
