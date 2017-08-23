@@ -6,9 +6,10 @@ body {
   font-family: 'Comfortaa', cursive;
 }
 
-.jumbotron h1 {
+.jumbotron marquee {
   font-family: 'Luckiest Guy', cursive;
   font-size: 80px;
+  margin: 2px;
 }
 
 .container {
@@ -19,6 +20,8 @@ body {
 .jumbotron {
   background-color: #5cb85c;
   color: #d9f4d9;
+  padding: 10px;
+  height: 200px;
 }
 
 label {
