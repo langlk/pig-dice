@@ -8,6 +8,34 @@
     <title>Pig Dice</title>
   </head>
   <body>
-
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Pig Dice</h1>
+      </div>
+      <form id="newGame">
+        <label for="player1-name">Player 1</label>
+        <input type="text" id="player1-name" class="form-control">
+        <label for="player2-name">Player 2</label>
+        <input type="text" id="player2-name" class="form-control">
+        <button type="submit" class="btn">Start Game</button>
+      </form>
+      <div class="scoreboard row">
+        <div class="col-xs-6">
+          <h2 class="player1"></h2>
+          <h4>Total Score: <span id="player1-score"></span></h4>
+        </div>
+        <div class="col-xs-6">
+          <h2 class=player2></h2>
+          <h4>Total Score: <span id="player2-score"></span></h4>
+        </div>
+      </div>
+      <div class="turn-info">
+        <h3><span id="player-turn"></span>'s Turn</h3>
+        <h4>Roll: <span id="roll"></span></h4>
+        <h4>Turn Score: <span id="turn-score"></span></h4>
+        <button type="button" id="hold" class="btn">Hold</button>
+        <button type="button" id="roll" class="btn">Roll</button>
+      </div>
+    </div>
   </body>
 </html>
