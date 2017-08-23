@@ -1,3 +1,15 @@
 .btn {
   margin: 20px;
 }
+
+.scoreboard {
+  display: none;
+}
+
+.turn-info {
+  display: none;
+}
+
+.winner{
+  display: none;
+}

@@ -14,11 +14,19 @@ function Game(player1, player2) {
   this.lastRoll = 0;
 }
 
+Game.prototype.winner = function() {
+  this.inactivePlayer.isWinner();
+  if (this.inactivePlayer.isWinner()){
+    return this.inactivePlayer;
+  } else if (this.activePlayer.isWinner()){
+    return this.activePlayer;
+  } else {
+    return undefined;
+  }
+}
+
 Game.prototype.endTurn = function() {
   this.activePlayer.score += this.turnScore;
-  if (this.activePlayer.isWinner()) {
-    alert(this.activePlayer.name + "Wins!");
-  }
   var lastPlayer = this.activePlayer;
   this.activePlayer = this.inactivePlayer;
   this.inactivePlayer = lastPlayer;
@@ -60,6 +68,13 @@ function updateScoreboard(player1, player2) {
   $("#player2-score").text(player2.score);
 }
 
+function showWinner(game) {
+  $(".turn-info").hide();
+  $(".scoreboard").hide();
+  $(".winner").show();
+  $("#winner").text(game.winner().name);
+}
+
 $(document).ready(function(){
   $("#newGame").submit(function(event) {
     event.preventDefault();
@@ -73,6 +88,9 @@ $(document).ready(function(){
       newGame.endTurn();
       updateTurn(newGame);
       updateScoreboard(player1, player2);
+      if (newGame.winner()){
+        showWinner(newGame);
+      }
       console.log(newGame);
     });
     $("button#roll").click(function() {
@@ -80,5 +98,8 @@ $(document).ready(function(){
       updateTurn(newGame);
       console.log(newGame);
     });
+    $("form#newGame").hide();
+    $(".scoreboard").show();
+    $(".turn-info").show();
   });
 });
