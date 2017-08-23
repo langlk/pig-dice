@@ -4,12 +4,24 @@
 
 .scoreboard {
   display: none;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .turn-info {
   display: none;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .winner{
   display: none;
+  text-align: center;
+}
+
+.btn#hold {
+  margin-left: 0px;
 }
