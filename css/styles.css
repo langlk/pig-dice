@@ -1,3 +1,15 @@
+body {
+  background-image: url("bg.jpg");
+  background-size: auto 100vh;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.container {
+  background-color: rgba(244, 244, 244, .7);
+  height: 100vh;
+}
+
 .btn {
   margin: 20px;
 }
