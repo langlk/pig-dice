@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Luckiest+Guy" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="js/jquery-3.2.1.js"></script>
@@ -17,7 +18,7 @@
         <input type="text" id="player1-name" class="form-control">
         <label for="player2-name">Player 2</label>
         <input type="text" id="player2-name" class="form-control">
-        <button type="submit" class="btn">Start Game</button>
+        <button type="submit" class="btn btn-success">Start Game</button>
       </form>
       <div class="scoreboard row">
         <div class="col-xs-6">
@@ -33,8 +34,8 @@
         <h3><span id="player-turn"></span>'s Turn</h3>
         <h4>Roll: <span id="roll">0</span></h4>
         <h4>Turn Score: <span id="turn-score">0</span></h4>
-        <button type="button" id="hold" class="btn">Hold</button>
-        <button type="button" id="roll" class="btn">Roll</button>
+        <button type="button" id="hold" class="btn btn-primary">Hold</button>
+        <button type="button" id="roll" class="btn btn-success">Roll</button>
       </div>
       <div class="winner">
         <h2><span id="winner"></span> Wins!</h2>

@@ -3,11 +3,26 @@ body {
   background-size: auto 100vh;
   background-repeat: no-repeat;
   background-position: right;
+  font-family: 'Comfortaa', cursive;
+}
+
+.jumbotron h1 {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 80px;
 }
 
 .container {
   background-color: rgba(244, 244, 244, .7);
   height: 100vh;
+}
+
+.jumbotron {
+  background-color: #5cb85c;
+  color: #d9f4d9;
+}
+
+label {
+  margin-top: 10px;
 }
 
 .btn {
