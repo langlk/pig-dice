@@ -16,6 +16,9 @@ function Game(player1, player2) {
 
 Game.prototype.endTurn = function() {
   this.activePlayer.score += this.turnScore;
+  if (this.activePlayer.isWinner()) {
+    alert(this.activePlayer.name + "Wins!");
+  }
   var lastPlayer = this.activePlayer;
   this.activePlayer = this.inactivePlayer;
   this.inactivePlayer = lastPlayer;
@@ -77,19 +80,5 @@ $(document).ready(function(){
       updateTurn(newGame);
       console.log(newGame);
     });
-    // while(!player1.isWinner() && !player2.isWinner()) {
-    //   player1.score += turn(player1);
-    //   console.log("Player 1's Score is " + player1.score);
-    //   if (player1.isWinner()) {
-    //     break;
-    //   }
-    //   player2.score += turn(player2);
-    //   console.log("Player 2's Score is " + player2.score);
-    // }
-    // if (player1.isWinner()) {
-    //   console.log("Player 1 Wins!");
-    // } else {
-    //   console.log("Player 2 Wins!");
-    // }
   });
 });
