@@ -52,6 +52,10 @@ label {
   text-align: center;
 }
 
+.winner h2 {
+  font-size: 50px;
+}
+
 .btn#hold {
   margin-left: 0px;
 }
