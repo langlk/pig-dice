@@ -69,7 +69,7 @@ function gameSetUp(game) {
 
 function updateTurn(game) {
   $("#player-turn").text(game.activePlayer.name);
-  $("#roll").text(game.lastRoll);
+  $("#roll").text(game.lastRoll[0] +", " + game.lastRoll[1]);
   $("#turn-score").text(game.turnScore);
 }
 
