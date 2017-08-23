@@ -11,7 +11,7 @@ function Game(player1, player2) {
   this.activePlayer = player1;
   this.inactivePlayer = player2;
   this.turnScore = 0;
-  this.lastRoll = 0;
+  this.lastRoll = [0,0];
 }
 
 Game.prototype.winner = function() {
@@ -31,8 +31,7 @@ Game.prototype.endTurn = function() {
   this.activePlayer = this.inactivePlayer;
   this.inactivePlayer = lastPlayer;
   this.turnScore = 0;
-  this.lastRoll = 0;
-  console.log("End of turn");
+  this.lastRoll = [0,0];
 }
 
 function diceRoll(){
@@ -46,10 +45,13 @@ function doubleDiceRoll(){
 
 Game.prototype.roll= function() {
   this.lastRoll = doubleDiceRoll();
-  console.log(this.lastRoll);
   var firstDie = this.lastRoll[0];
   var secondDie = this.lastRoll[1];
-  if (firstDie === 1 || secondDie === 1 ) {
+  if (firstDie === secondDie && firstDie === 1) {
+    this.activePlayer.score = 0;
+    this.turnScore = 0;
+    this.endTurn();
+  } else if (firstDie === 1 || secondDie === 1 ) {
     this.turnScore = 0;
     this.endTurn();
   } else {
@@ -99,12 +101,11 @@ $(document).ready(function(){
       if (newGame.winner()){
         showWinner(newGame);
       }
-      console.log(newGame);
     });
     $("button#roll").click(function() {
       newGame.roll()
       updateTurn(newGame);
-      console.log(newGame);
+      updateScoreboard(player1, player2);
     });
     $("form#newGame").hide();
     $(".scoreboard").show();
