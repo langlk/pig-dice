@@ -6,9 +6,17 @@
   * Example input: [Roll]
   * Example output: 3
 
-* If roll is a one, turn is over, and turn score of zero is returned.
-  * Example input: Roll = 1
+* Program will roll two dice, returning two random numbers from 1 to 6.
+  * Example input: [Roll]
+  * Example output: 3, 5
+
+* If one die in a roll is a one, turn is over, and turn score of zero is returned.
+  * Example input: Roll = 1, 6
   * Example output: Turn Score = 0
+
+* If both dice in a roll are one, turn is over, and player's score is set to zero.
+  * Example input: Roll = 1, 1
+  * Example output: Player Score = 0
 
 * If roll is a number besides one, the number is added to the turn score.
   * Example input: Roll = 2

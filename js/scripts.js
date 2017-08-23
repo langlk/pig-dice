@@ -39,13 +39,21 @@ function diceRoll(){
   return parseInt(Math.random() * (7 - 1) + 1);
 }
 
+function doubleDiceRoll(){
+  var roll = [diceRoll(), diceRoll()];
+  return roll;
+}
+
 Game.prototype.roll= function() {
-  this.lastRoll = diceRoll();
-  if (this.lastRoll === 1) {
+  this.lastRoll = doubleDiceRoll();
+  console.log(this.lastRoll);
+  var firstDie = this.lastRoll[0];
+  var secondDie = this.lastRoll[1];
+  if (firstDie === 1 || secondDie === 1 ) {
     this.turnScore = 0;
     this.endTurn();
   } else {
-    this.turnScore += this.lastRoll;
+    this.turnScore += firstDie + secondDie;
   }
 }
 
